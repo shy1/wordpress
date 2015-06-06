@@ -22,7 +22,7 @@ function seths_featured_product( $atts ){
 	$custom = get_post_custom($fposts[$index]->ID);
 	$img = wp_get_attachment_image($custom[_thumbnail_id][0], 'medium');
 
-	/* row argument is used to have different html/css depending on the item's location on the page (row 1, 2 or 3) */
+/* row argument is used to have different html/css depending on the item's location on the page (row 1, 2 or 3) */
 	switch ($row) {
 	case "1":
 		ob_start();
