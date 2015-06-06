@@ -21,6 +21,8 @@ function seths_featured_product( $atts ){
 	$product = get_post($fposts[$index]->ID, ARRAY_A); 
 	$custom = get_post_custom($fposts[$index]->ID);
 	$img = wp_get_attachment_image($custom[_thumbnail_id][0], 'medium');
+
+	/* row argument is used to have different html/css depending on the item's location on the page (row 1, 2 or 3) */
 	switch ($row) {
 	case "1":
 		ob_start();
@@ -40,4 +42,6 @@ function seths_featured_product( $atts ){
 	}
 }
 
+/* add shortcode to call the function from within wordpress, "[featuredp index=0 row=1]" will call the seths_featured_product
+		function with the arguments 0 and 1 */
 add_shortcode('featuredp', 'seths_featured_product');
