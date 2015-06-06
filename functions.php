@@ -1,5 +1,17 @@
 <?php
 
+/* get the post IDs of 3 featured products (this code excerpt goes in the page's php file, for example homepage.php) */
+<?php
+	$args = array(  
+		'post_type' =>  array( 'product', 'product_variation' ), 
+		'meta_key' => '_featured',  
+		'meta_value' => 'yes',  
+		'posts_per_page' => 3 
+	);
+	$fposts = get_posts( $args );
+?>
+
+/* get image url, post title, price, and description for a product and return html displaying those attributes */
 function seths_featured_product( $atts ){
 	global $fposts;
 	extract(shortcode_atts( array(
